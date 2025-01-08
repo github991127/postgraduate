@@ -1,30 +1,14 @@
 /* */
 #include <iostream>
+#include <string>
 using namespace std;
-const int N=3;
+//const int N=10;
+
 int main()
 {
-    char ch='Z';
-    int i,j;
-    for(i=1; i<=N;i++)
-    {
-         for(j=1;j<=N-i;j++)cout<<" ";
-         cout<<ch--;
-         for(j=1;j<=2*i-1-2;j++)cout<<" ";
-        if(i==1){cout<<endl;continue;}
-         cout<<ch--;
-         cout<<endl;
-    }
-    i--;i--;
-    for(;i>=1;i--)
-    {
-         for(j=1;j<=N-i;j++)cout<<" ";
-         cout<<ch--;
-         for(j=1;j<=2*i-1-2;j++)cout<<" ";
-         if(i==1){cout<<endl;continue;}
-         cout<<ch--;
-         cout<<endl;
-    }
+    int a = 0;
+    cin >> a;
+    cout << "ok:" << a << endl;
 }
 
 /*
@@ -63,5 +47,3 @@ class A{
         void fun1();
 };
 */
-
-
