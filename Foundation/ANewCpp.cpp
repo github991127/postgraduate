@@ -6,9 +6,10 @@ using namespace std;
 
 int main()
 {
+    system("chcp 65001");
     int a = 0;
     cin >> a;
-    cout << "ok:" << a << endl;
+    cout << "输出:" << a << endl;
 }
 
 /*

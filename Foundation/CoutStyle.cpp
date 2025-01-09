@@ -60,14 +60,9 @@ void F5()
 
 int main()
 {
-    char ch[] = "----------------------";
     F1();
-    cout << ch << endl;
-    F2();
-    cout << ch << endl;
-    F3();
-    cout << ch << endl;
-    F4();
-    cout << ch << endl;
-    F5();
+    // F2();
+    // F3();
+    // F4();
+    // F5();
 }
