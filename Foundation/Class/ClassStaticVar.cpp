@@ -6,7 +6,7 @@
 */
 #include <iostream>
 using namespace std;
-int sum = 5; //全局变量5
+int sum = 5;
 
 class Mod
 {
@@ -15,12 +15,13 @@ private:
     int i;
 
 public:
-    static int getsum() { return sum; } //return i错误，静态成员函数不能访问非静态成员
-    //static int getsum(Mod &a){return a.i;}//正确
+    static int getsum() { return sum; }
+    // static int getsum() { return i; }//❎静态成员函数不能访问非静态成员
+    // static int getsum(Mod &a){return a.i;}//✔️
     void show() { cout << ::sum << ',' << sum << '\n'; } //::sum指全局变量5
 };
 
-int Mod::sum = 1; //全局变量初始化
+int Mod::sum = 1;
 
 int main()
 {
@@ -28,10 +29,11 @@ int main()
     Mod a;
     cout << a.getsum() << endl;
     cout << "--------------------" << endl;
-    a.show();
-    //Mod::sum++;//类外不可访问私有
+
+    a.show(); //5,1
+    //Mod::sum++;//❎类外不可访问私有
     static Mod b;
-    b.show();
+    b.show(); //5,1
     sum++;
-    a.show();
+    a.show(); //6,1
 }

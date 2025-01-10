@@ -2,8 +2,7 @@
 #include <fstream>
 using namespace std;
 
-// 文件输出流o：写入键盘内容到文件<<
-// 文件输入流i：写出文件内容到屏幕>>read，get
+// 文件读写
 bool FileIO()
 {
     int a;

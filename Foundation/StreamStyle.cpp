@@ -2,6 +2,7 @@
 #include <iomanip>
 using namespace std;
 
+//精度
 void F1()
 {
     double x = 123.45555;
@@ -13,6 +14,7 @@ void F1()
     cout << z << endl; //整数数字位＞6，强制科学记数法（1.23456）
 }
 
+//宽度
 void F2()
 {
     double x = 123.456789;
@@ -25,6 +27,7 @@ void F2()
     cout << x << endl;
 }
 
+//进制
 void F3()
 {
     int x = 15;
@@ -34,6 +37,7 @@ void F3()
     cout << hex << x << endl;
 }
 
+//符号
 void F4()
 {
     double x = 123.456789;
@@ -46,23 +50,11 @@ void F4()
     cout << x << endl;
 }
 
-void F5()
-{
-    double x = 123.456789;
-    cout << x << endl;
-    cout.precision(2);
-    cout << x << endl;
-    cout.setf(ios::showpos);
-    cout << x << endl;
-    cout.setf(ios::scientific);
-    cout << x << endl;
-}
 
 int main()
 {
-    F1();
+    // F1();
     // F2();
     // F3();
-    // F4();
-    // F5();
+    F4();
 }

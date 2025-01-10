@@ -36,7 +36,6 @@ bool isShorter(const string& s1, const string& s2)
     return s1.size() < s2.size();
 }
 
-
 int main()
 {
     //数组无法拷贝，作参数均为指针传递，有两种等价方式：数组名或指针，不希望改变原值，参数加const
@@ -46,7 +45,7 @@ int main()
     F2(ch);
     cout << "ch:" << ch << endl;
 
-    char chx[] = {69, 68, 67, 66, 65};
+    char chx[] = {65, 66, 67, 68, 69};
     // F3(chx);
     // cout << "chx:" << chx << endl;
     F4(chx);
