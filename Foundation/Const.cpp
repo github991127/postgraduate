@@ -17,7 +17,9 @@ void ConstRef()
 
 void ConstPointer()
 {
-    //指向常量的指针（pointer to const）
+    //区分：*永远在int后，距离修饰量越近属性越优先：const int* 强调所指的int是常量，int* const 强调指针本身是常量
+
+    //指向常量值的指针（pointer to const）
     const int v1 = 1;
     // int *poiV1 = &v1; //❎常量必须用指向常量的指针来指
     const int* poiV1 = &v1;

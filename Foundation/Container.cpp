@@ -8,6 +8,8 @@
 #include <functional> // 用于priority_queue的比较函数
 #include <map>
 #include <set>
+#include <unordered_map>
+#include <unordered_set>
 using namespace std;
 
 // vector 为单个类型对象的容器，长度可变。迭代器间接访问容器中的对象，避免使用指针来直接访问
@@ -79,28 +81,28 @@ void dequeBase()
 
 void setBase()
 {
-    std::set<int> mySet = {1, 2, 3, 4, 5};
+    set<int> mySet = {1, 2, 3, 4, 5};
 
     mySet.insert(6);
-    std::cout << "Set after insertion: ";
+    cout << "Set after insertion: ";
     for (const auto& elem : mySet)
     {
-        std::cout << elem << " ";
+        cout << elem << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     mySet.erase(4);
-    std::cout << "Set after deletion: ";
+    cout << "Set after deletion: ";
     for (const auto& elem : mySet)
     {
-        std::cout << elem << " ";
+        cout << elem << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 }
 
 void mapBase()
 {
-    std::map<int, std::string> myMap = {
+    map<int, string> myMap = {
         {1, "one"},
         {2, "two"},
         {3, "three"},
@@ -110,10 +112,10 @@ void mapBase()
 
     // 插入
     myMap.insert({6, "six"});
-    std::cout << "Map after insertion: " << std::endl;
+    cout << "Map after insertion: " << endl;
     for (const auto& pair : myMap)
     {
-        std::cout << pair.first << " -> " << pair.second << std::endl;
+        cout << pair.first << " -> " << pair.second << endl;
     }
 
     // 更新
@@ -122,26 +124,74 @@ void mapBase()
     {
         it->second = "THREE";
     }
-    std::cout << "Map after update: " << std::endl;
+    cout << "Map after update: " << endl;
     for (const auto& pair : myMap)
     {
-        std::cout << pair.first << " -> " << pair.second << std::endl;
+        cout << pair.first << " -> " << pair.second << endl;
     }
 
     // 删除
     myMap.erase(4);
-    std::cout << "Map after deletion: " << std::endl;
+    cout << "Map after deletion: " << endl;
     for (const auto& pair : myMap)
     {
-        std::cout << pair.first << " -> " << pair.second << std::endl;
+        cout << pair.first << " -> " << pair.second << endl;
     }
+}
+
+void printUmapInfo(const unordered_map<int, string>& umap)
+{
+    cout << "umap 初始桶数: " << umap.bucket_count() << endl;
+    cout << "umap 最大可使用桶数: " << umap.max_bucket_count() << endl;
+    cout << "umap 当前存在的键值对: " << umap.size() << endl;
+    cout << "umap 初始负载因子: " << umap.load_factor() << endl;
+    cout << "umap 最大负载因子: " << umap.max_load_factor() << endl;
+}
+
+void unorderedMapBase(){
+    unordered_map<int, string> myMap = {
+        {1, "one"},
+        {2, "two"},
+        {3, "three"},
+    };
+    // 插入
+    myMap.insert({4, "four"});
+    myMap.emplace(make_pair (5, "five"));//基本同insert，但相比insert效率更高
+    cout << "Unordered Map after insertion: " << endl;
+    for (const auto& pair : myMap)
+    {
+        cout << pair.first << " -> " << pair.second << endl;
+    }
+
+    // 更新
+    auto it = myMap.find(3);
+    if (it != myMap.end())
+    {
+        it->second = "THREE";
+    }
+    cout << "Unordered Map after update: " << endl;
+    for (const auto& pair : myMap)
+    {
+        cout << pair.first << " -> " << pair.second << endl;
+    }
+
+    // 删除
+    myMap.erase(4);
+    cout << "Unordered Map after deletion: " << endl;
+    for (const auto& pair : myMap){
+        cout << pair.first << " -> " << pair.second << endl;
+    }
+
+    printUmapInfo(myMap);
 }
 
 int main()
 {
+    system("chcp 65001");
     // VectorBase();
     // ArrayBase();
     // dequeBase();
     // setBase();
-    mapBase();
+    // mapBase();
+    unorderedMapBase();
 }
